@@ -17,3 +17,13 @@ variable "environment" {
   type        = string
   description = "Environment"
 }
+
+variable "local_vpc_id" {
+  type        = string
+  description = "Local VPC - ID"
+}
+
+variable "remote_vpn_cgw_ip" {
+  type        = string
+  description = "Remote VPC - Customer Gateway Public IP"
+}

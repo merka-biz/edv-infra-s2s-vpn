@@ -1,6 +1,6 @@
 resource "aws_customer_gateway" "vpn" {
   bgp_asn    = 65000
-  ip_address = "172.0.0.1"
+  ip_address = var.remote_vpn_cgw_ip
   type       = "ipsec.1"
 }
 
