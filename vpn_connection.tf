@@ -18,6 +18,10 @@ resource "aws_vpn_connection" "main" {
   remote_ipv4_network_cidr = var.local_vpc_cidr
   tunnel1_preshared_key = "awsvpnconnection"
   tunnel2_preshared_key = "awsvpnconnection"
+
+  tags = {
+    Name = join("-", [var.environment, local.solution_name, "s2s-vpn", "connection"])
+  }
 }
 
 resource "aws_vpn_connection_route" "office" {
