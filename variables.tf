@@ -23,6 +23,16 @@ variable "local_vpc_id" {
   description = "Local VPC - ID"
 }
 
+variable "local_vpc_cidr" {
+  type        = string
+  description = "Local VPC - CIDR"
+}
+
+variable "remote_vpc_cidr" {
+  type        = string
+  description = "Remote VPC - CIDR"
+}
+
 variable "remote_vpn_cgw_ip" {
   type        = string
   description = "Remote VPC - Customer Gateway Public IP"
