@@ -24,7 +24,7 @@ resource "aws_vpn_connection" "main" {
   }
 }
 
-resource "aws_vpn_connection_route" "office" {
+resource "aws_vpn_connection_route" "remote_vpc" {
   destination_cidr_block = var.remote_vpc_cidr
   vpn_connection_id      = aws_vpn_connection.main.id
 }
