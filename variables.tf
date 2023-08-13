@@ -37,3 +37,8 @@ variable "remote_vpn_cgw_ip" {
   type        = string
   description = "Remote VPC - Customer Gateway Public IP"
 }
+
+variable "route_table_subnet_id" {
+  type        = string
+  description = "Route table Subnet ID - used to get the associated route table"
+}
