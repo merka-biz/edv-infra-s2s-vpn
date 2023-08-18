@@ -15,7 +15,7 @@ resource "aws_vpn_connection" "main" {
   static_routes_only       = true
   tunnel_inside_ip_version = "ipv4"
   local_ipv4_network_cidr  = var.remote_vpc_cidr
-  remote_ipv4_network_cidr = var.local_vpc_cidr
+  remote_ipv4_network_cidr = data.aws_vpc.local_vpc.cidr_block
   tunnel1_preshared_key    = "awsvpnconnection"
   tunnel2_preshared_key    = "awsvpnconnection"
 

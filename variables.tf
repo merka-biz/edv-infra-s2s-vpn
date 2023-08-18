@@ -33,11 +33,6 @@ variable "local_vpc_id" {
   description = "Local VPC - ID"
 }
 
-variable "local_vpc_cidr" {
-  type        = string
-  description = "Local VPC - CIDR"
-}
-
 variable "remote_vpc_cidr" {
   type        = string
   description = "Remote VPC - CIDR"
@@ -48,7 +43,7 @@ variable "remote_vpn_cgw_ip" {
   description = "Remote VPC - Customer Gateway Public IP"
 }
 
-variable "route_table_subnet_id" {
+variable "public_route_table_id" {
   type        = string
-  description = "Route table Subnet ID - used to get the associated route table"
+  description = "Public route table ID"
 }
