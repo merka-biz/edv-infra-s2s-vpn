@@ -47,3 +47,13 @@ variable "public_route_table_id" {
   type        = string
   description = "Public route table ID"
 }
+
+variable "cloudwatch_logs_enabled" {
+  type        = bool
+  description = "Cloudwatch Logs for the VPN connection"
+}
+
+variable "cloudwatch_logs_retention_in_days" {
+  type        = string
+  description = "Cloudwatch Logs for the VPN connection, retention in days"
+}

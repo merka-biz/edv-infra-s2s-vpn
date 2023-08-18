@@ -1,3 +1,7 @@
+locals {
+  vpn_connection_name = join("-", [var.environment, local.solution_name, "s2s-vpn", "connection"])
+}
+
 resource "aws_vpn_connection" "main" {
   vpn_gateway_id           = aws_vpn_gateway.vpn_gw.id
   customer_gateway_id      = aws_customer_gateway.vpn.id
@@ -31,8 +35,24 @@ resource "aws_vpn_connection" "main" {
   tunnel2_phase2_dh_group_numbers = [ 2 ]
   tunnel2_phase2_lifetime_seconds = 3600
 
+  tunnel1_log_options {
+    cloudwatch_log_options {
+      log_group_arn = aws_cloudwatch_log_group.session_logs
+      log_enabled = var.cloudwatch_logs_enabled
+      log_output_format = "json"
+    }
+  }
+
+  tunnel2_log_options {
+    cloudwatch_log_options {
+      log_group_arn = aws_cloudwatch_log_group.session_logs
+      log_enabled = var.cloudwatch_logs_enabled
+      log_output_format = "json"
+    }
+  }
+
   tags = {
-    Name = join("-", [var.environment, local.solution_name, "s2s-vpn", "connection"])
+    Name = local.vpn_connection_name
   }
 }
 
