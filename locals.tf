@@ -1,5 +1,3 @@
 locals {
-  company       = "edv"
-  country       = "ec"
-  solution_name = join("-", [local.company, local.country])
+  solution_name = join("-", [var.company, var.country])
 }

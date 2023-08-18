@@ -13,6 +13,16 @@ variable "aws_secret_key" {
   description = "AWS account secret key"
 }
 
+variable "organization" {
+  type        = string
+  description = "Organization name (3 characters)"
+}
+
+variable "country" {
+  type        = string
+  description = "Country code (3 characters)"
+}
+
 variable "environment" {
   type        = string
   description = "Environment"

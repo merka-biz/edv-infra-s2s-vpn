@@ -8,7 +8,7 @@ provider "aws" {
       Terraform   = "true"
       Environment = var.environment
       Solution    = local.solution_name
-      Country     = local.country
+      Country     = var.country
     }
   }
 }
