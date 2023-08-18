@@ -32,10 +32,12 @@ resource "aws_vpn_connection" "main" {
   tunnel2_phase1_encryption_algorithms = ["AES256"]
   tunnel2_phase1_dh_group_numbers      = [2, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
   tunnel2_phase1_lifetime_seconds      = 28800
+  tunnel2_phase1_integrity_algorithms = [ "SHA2-256", "SHA2-384", "SHA2-512" ]
 
   tunnel2_phase2_encryption_algorithms = ["AES256"]
   tunnel2_phase2_dh_group_numbers      = [2, 5, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
   tunnel2_phase2_lifetime_seconds      = 3600
+  tunnel2_phase2_integrity_algorithms = [ "SHA2-256", "SHA2-384", "SHA2-512" ]
 
   tunnel1_log_options {
     cloudwatch_log_options {
