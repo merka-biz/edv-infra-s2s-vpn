@@ -8,7 +8,7 @@ resource "aws_vpn_connection" "main" {
   remote_ipv4_network_cidr = data.aws_vpc.local_vpc.cidr_block
 
 
-  tunnel1_preshared_key    = join("-", [var.environment, local.solution_name, "vpn-conn-t1-psk"])
+  tunnel1_preshared_key    = replace(join("-", [var.environment, local.solution_name, "vpn-conn-t1-psk"]), "-", "_")
   tunnel1_ike_versions = [ "ikev2" ]
 
   tunnel1_phase1_encryption_algorithms = [ "AES256" ]
@@ -20,7 +20,7 @@ resource "aws_vpn_connection" "main" {
   tunnel1_phase2_lifetime_seconds = 3600
 
 
-  tunnel2_preshared_key    = join("-", [var.environment, local.solution_name, "vpn-conn-t2-psk"])
+  tunnel2_preshared_key    = replace(join("-", [var.environment, local.solution_name, "vpn-conn-t2-psk"]), "-", "_")
   tunnel2_ike_versions = [ "ikev2" ]
 
   tunnel2_phase1_encryption_algorithms = [ "AES256" ]
