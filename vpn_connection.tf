@@ -14,12 +14,12 @@ resource "aws_vpn_connection" "main" {
   tunnel1_preshared_key = replace(join("-", [var.environment, local.solution_name, "vpn-conn-t1-psk"]), "-", "_")
   tunnel1_ike_versions  = ["ikev2"]
 
-  tunnel1_phase1_encryption_algorithms = ["AES256"]
+  # tunnel1_phase1_encryption_algorithms = ["AES256"]
   tunnel1_phase1_dh_group_numbers      = [2]
   tunnel1_phase1_lifetime_seconds      = 1440
   tunnel1_phase1_integrity_algorithms = [ "SHA2-256" ]
 
-  tunnel1_phase2_encryption_algorithms = ["AES256"]
+  # tunnel1_phase2_encryption_algorithms = ["AES256"]
   tunnel1_phase2_dh_group_numbers      = [2]
   tunnel1_phase2_lifetime_seconds      = 1440
   tunnel1_phase2_integrity_algorithms = [ "SHA2-256" ]
@@ -28,12 +28,12 @@ resource "aws_vpn_connection" "main" {
   tunnel2_preshared_key = replace(join("-", [var.environment, local.solution_name, "vpn-conn-t2-psk"]), "-", "_")
   tunnel2_ike_versions  = ["ikev2"]
 
-  tunnel2_phase1_encryption_algorithms = ["AES256"]
+  # tunnel2_phase1_encryption_algorithms = ["AES256"]
   tunnel2_phase1_dh_group_numbers      = [2]
   tunnel2_phase1_lifetime_seconds      = 3600
   tunnel2_phase1_integrity_algorithms = [ "SHA2-256" ]
 
-  tunnel2_phase2_encryption_algorithms = ["AES256"]
+  # tunnel2_phase2_encryption_algorithms = ["AES256"]
   tunnel2_phase2_dh_group_numbers      = [2]
   tunnel2_phase2_lifetime_seconds      = 3600
   tunnel2_phase2_integrity_algorithms = [ "SHA2-256" ]
