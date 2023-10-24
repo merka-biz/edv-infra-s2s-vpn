@@ -8,9 +8,11 @@ resource "aws_vpn_connection" "main" {
   type                     = aws_customer_gateway.vpn.type
   static_routes_only       = true
   tunnel_inside_ip_version = "ipv4"
-  local_ipv4_network_cidr  = var.remote_vpc_cidr
-  remote_ipv4_network_cidr = data.aws_vpc.local_vpc.cidr_block
+  local_ipv4_network_cidr  = "0.0.0.0/0"
+  remote_ipv4_network_cidr = "0.0.0.0/0"
 
+
+  tunnel1_startup_action = "start"
   tunnel1_preshared_key = replace(join("-", [var.environment, local.solution_name, "vpn-conn-t1-psk"]), "-", "_")
   tunnel1_ike_versions  = ["ikev2"]
 
@@ -25,6 +27,7 @@ resource "aws_vpn_connection" "main" {
   tunnel1_phase2_integrity_algorithms  = ["SHA2-256"]
 
 
+  tunnel2_startup_action = "start"
   tunnel2_preshared_key = replace(join("-", [var.environment, local.solution_name, "vpn-conn-t2-psk"]), "-", "_")
   tunnel2_ike_versions  = ["ikev2"]
 
